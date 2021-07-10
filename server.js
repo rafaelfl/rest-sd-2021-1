@@ -37,7 +37,14 @@ app.get("/produtos/:id", (req, res) => {
     } else {
         res.status(404).send();
     }
+});
 
+app.post("/cadastro", (req, res) => {
+    const produto = req.body;
+
+    bd.push(produto);
+
+    res.send({ result: "OK" });
 });
 
 app.listen(port, () => {
