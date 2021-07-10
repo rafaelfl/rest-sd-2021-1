@@ -29,6 +29,12 @@ app.get("/produtos", (req, res) => {
     res.send(bd);
 });
 
+app.get("/produtos/:id", (req, res) => {
+    const idProduto = req.params.id;
+
+    res.send(bd[idProduto]);
+});
+
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });
