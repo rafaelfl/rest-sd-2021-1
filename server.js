@@ -21,8 +21,10 @@ const bd = [
 
 app.use(express.json());
 
+app.use(express.static(process.env.PWD + "/public"));
+
 app.get("/", (request, response) => {
-    response.send("Alô mundo!");
+    response.render("index");
 });
 
 app.get("/produtos", (req, res) => {
