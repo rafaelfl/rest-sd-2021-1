@@ -32,7 +32,12 @@ app.get("/produtos", (req, res) => {
 app.get("/produtos/:id", (req, res) => {
     const idProduto = req.params.id;
 
-    res.send(bd[idProduto]);
+    if (idProduto >= 0 && idProduto < bd.length) {
+        res.send(bd[idProduto]);
+    } else {
+        res.status(404).send();
+    }
+
 });
 
 app.listen(port, () => {
